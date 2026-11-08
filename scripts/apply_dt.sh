@@ -10,8 +10,8 @@ sed -i 's/-Xmx1024M/-Xmx4096M/g' $J/gradle.properties
 D=dependencies/RSDKv5/dependencies/android
 rm -rf $D/libogg $D/libtheora
 mkdir -p $D/libogg $D/libtheora
-curl -fsSL https://downloads.xiph.org/releases/ogg/libogg-1.3.5.tar.gz | tar xz -C $D/libogg --strip-components=1
-curl -fsSL https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.gz | tar xz -C $D/libtheora --strip-components=1
+for t in 1 2 3 4 5; do curl -fsSL -o /tmp/dl.tgz https://downloads.xiph.org/releases/ogg/libogg-1.3.5.tar.gz && tar xzf /tmp/dl.tgz -C $D/libogg --strip-components=1 && break; sleep 5; done
+for t in 1 2 3 4 5; do curl -fsSL -o /tmp/dl.tgz https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.gz && tar xzf /tmp/dl.tgz -C $D/libtheora --strip-components=1 && break; sleep 5; done
 cat > $D/libogg/include/ogg/config_types.h << 'EOT'
 #ifndef __CONFIG_TYPES_H__
 #define __CONFIG_TYPES_H__
@@ -33,3 +33,4 @@ mkdir -p $S/assets
 cp -r patches/mods $S/assets/mods
 cp -r "$S/assets/mods/Shaders/Data/Shaders/GL3" "$S/assets/mods/Shaders/Data/Shaders/OGL"
 sed -i 's/IntegerGeorge802/Playerzin13MV/g' dependencies/RSDKv5/RSDKv5/RSDK/User/Dummy/DummyStorage.cpp
+test -f $D/libogg/src/bitwise.c && test -f $D/libtheora/lib/state.c
