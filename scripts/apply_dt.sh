@@ -26,3 +26,10 @@ typedef int64_t ogg_int64_t;
 typedef uint64_t ogg_uint64_t;
 #endif
 EOT
+S=dependencies/RSDKv5/android/app/src/main
+cp patches/Launcher.java $S/java/org/rems/rsdkv5/Launcher.java
+python3 scripts/patch_rsdk.py
+mkdir -p $S/assets
+cp -r patches/mods $S/assets/mods
+cp -r "$S/assets/mods/Shaders/Data/Shaders/GL3" "$S/assets/mods/Shaders/Data/Shaders/OGL"
+sed -i 's/IntegerGeorge802/Playerzin13MV/g' dependencies/RSDKv5/RSDKv5/RSDK/User/Dummy/DummyStorage.cpp
