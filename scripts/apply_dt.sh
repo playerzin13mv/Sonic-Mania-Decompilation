@@ -37,3 +37,5 @@ test -f $D/libogg/src/bitwise.c && test -f $D/libtheora/lib/state.c
 cp patches/DTOverlay.java $S/java/org/rems/rsdkv5/DTOverlay.java
 python3 scripts/patch_overlay.py
 rm -rf "$S/assets/mods/New Mania Touch Controls"
+python3 -m pip install -q pillow
+python3 scripts/make_icon.py
