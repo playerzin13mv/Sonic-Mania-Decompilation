@@ -20,7 +20,8 @@ jobs:
         working-directory: dependencies/RSDKv5/android
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon -PABIFILTERS="arm64-v8a;armeabi-v7a"
+          n=0
+          until ./gradlew assembleRelease --no-daemon -PABIFILTERS="arm64-v8a;armeabi-v7a"; do n=$((n+1)); if [ $n -ge 3 ]; then exit 1; fi; sleep 20; done
       - name: Assinar
         env:
           KS_B64: ${{ secrets.KEYSTORE_B64 }}
