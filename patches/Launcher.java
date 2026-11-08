@@ -116,7 +116,7 @@ public class Launcher extends AppCompatActivity {
         if (!marker.exists()) {
             copyAssets("mods", new File(base, "mods"));
             writeText(new File(base, "mods/modconfig.ini"),
-                    "[Mods]\nNew Mania Touch Controls=y\nShaders=y\n");
+                    "[Mods]\nShaders=y\n");
             writeText(marker, "1");
         }
     }

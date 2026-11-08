@@ -34,3 +34,6 @@ cp -r patches/mods $S/assets/mods
 cp -r "$S/assets/mods/Shaders/Data/Shaders/GL3" "$S/assets/mods/Shaders/Data/Shaders/OGL"
 sed -i 's/IntegerGeorge802/Playerzin13MV/g' dependencies/RSDKv5/RSDKv5/RSDK/User/Dummy/DummyStorage.cpp
 test -f $D/libogg/src/bitwise.c && test -f $D/libtheora/lib/state.c
+cp patches/DTOverlay.java $S/java/org/rems/rsdkv5/DTOverlay.java
+python3 scripts/patch_overlay.py
+rm -rf "$S/assets/mods/New Mania Touch Controls"
