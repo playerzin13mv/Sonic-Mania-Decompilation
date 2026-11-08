@@ -20,7 +20,7 @@ jobs:
         working-directory: dependencies/RSDKv5/android
         run: |
           chmod +x gradlew
-          ./gradlew assembleRelease --no-daemon -PRETRO_DISABLE_PLUS=true -PABIFILTERS="arm64-v8a;armeabi-v7a"
+          ./gradlew assembleRelease --no-daemon -PABIFILTERS="arm64-v8a;armeabi-v7a"
       - name: Assinar
         env:
           KS_B64: ${{ secrets.KEYSTORE_B64 }}

@@ -7,4 +7,8 @@ sed -i 's|\(<string name="app_name">\)[^<]*|\1Sonic Mania: D.T|' $A/src/main/res
 J=dependencies/RSDKv5/android
 ln -sfn ../../../../.. $J/app/jni/Game
 sed -i 's/-Xmx1024M/-Xmx4096M/g' $J/gradle.properties
-sed -i 's|"-DANDROID_STL=c++_shared",|"-DANDROID_STL=c++_shared", "-DMANIA_PREPLUS=ON",|' $J/app/build.gradle
+D=dependencies/RSDKv5/dependencies/android
+rm -rf $D/libogg $D/libtheora
+mkdir -p $D/libogg $D/libtheora
+curl -fsSL https://downloads.xiph.org/releases/ogg/libogg-1.3.5.tar.gz | tar xz -C $D/libogg --strip-components=1
+curl -fsSL https://downloads.xiph.org/releases/theora/libtheora-1.1.1.tar.gz | tar xz -C $D/libtheora --strip-components=1
