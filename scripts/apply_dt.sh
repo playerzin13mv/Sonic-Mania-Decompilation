@@ -42,3 +42,6 @@ python3 scripts/make_icon.py
 cp patches/DTMenu.java $S/java/org/rems/rsdkv5/DTMenu.java
 python3 scripts/patch_overlay2.py
 sed -i 's/pill(c, modsR, "MODS", false)/pill(c, modsR, "MENU", false)/' $S/java/org/rems/rsdkv5/DTOverlay.java
+python3 scripts/make_skin.py $S/assets/mods
+python3 scripts/patch_overlay3.py
+python3 scripts/patch_menu3.py
