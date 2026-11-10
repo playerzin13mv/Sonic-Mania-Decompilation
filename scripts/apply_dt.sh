@@ -45,3 +45,4 @@ sed -i 's/pill(c, modsR, "MODS", false)/pill(c, modsR, "MENU", false)/' $S/java/
 python3 scripts/make_skin.py $S/assets/mods
 python3 scripts/patch_overlay3.py
 python3 scripts/patch_menu3.py
+python3 scripts/patch_vis5.py
