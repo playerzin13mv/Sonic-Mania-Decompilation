@@ -38,7 +38,7 @@ cp patches/DTOverlay.java $S/java/org/rems/rsdkv5/DTOverlay.java
 python3 scripts/patch_overlay.py
 rm -rf "$S/assets/mods/New Mania Touch Controls"
 python3 -m pip install -q pillow
-python3 scripts/make_icon.py
+python3 scripts/use_icon.py
 cp patches/DTMenu.java $S/java/org/rems/rsdkv5/DTMenu.java
 python3 scripts/patch_overlay2.py
 sed -i 's/pill(c, modsR, "MODS", false)/pill(c, modsR, "MENU", false)/' $S/java/org/rems/rsdkv5/DTOverlay.java
